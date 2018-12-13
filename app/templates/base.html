@@ -1,0 +1,57 @@
+<html lang="de">
+    <head>
+        {% if title %}
+        <title>{{ title }} - boolibsy</title>
+        {% else %}
+        <title>boolibsy</title>
+        {% endif %}
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='styles/custom.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='styles/jquery-ui.css') }}">
+		<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery-ui.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/socket.io.slim.js') }}"></script>
+
+    </head>
+    <body class="mb-5">
+    	<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+		  <a class="navbar-brand" href="{{ url_for('index') }}">
+              <span style="color:#0000ff;">boo</span><span style="color:#00ff00;">lib</span><span style="color: #ff8000;">sy</span></a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Analysis
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+		        </div>
+		      </li>
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Data Manager
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+		        </div>
+		      </li>
+		    </ul>
+		  </div>
+		</nav>
+        
+        <div class="container">
+        	<h1 class="mb-3">{{ title }}<br><small>{{ sub_title }}</small></h1>
+            <div class="container">{% block content %}{% endblock %}</div>
+        </div>
+    
+    
+
+        	
+    </body>
+</html>

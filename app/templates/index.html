@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form action="" method="post" class="mb-md-4" novalidate>
+        {{ form.csrf_token }}
+        <div class="form-group">
+            <div class="">
+                <h3 class="mb-md-4">Scanne einen Leser oder ein Buch ein:</h3>
+                {{ form.barcode(size=40, class_="form-control p-md-5") }}
+            </div>
+        </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </form>
+
+    <script>
+        $( "#barcode" ).focus();
+    </script>
+
+    <div class="card-columns">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                Bücher<span class="badge badge-info ml-auto">{{ book_count }}</span>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between align-items-center">Ausgeliehen <span class="badge badge-info">{{ loaned_count }}</span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Im Regal <span class="badge badge-info">{{ in_stock_count }}</span></li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                Leser <span class="badge badge-info">{{ reader_count }}</span>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between align-items-center">mit ausgeliehenen Büchern <span class="badge badge-info">{{ reader_with_loaned }}</span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">ohne ausgeliehenen Büchern<span class="badge badge-info">{{ reader_without_loaned }}</span></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}
