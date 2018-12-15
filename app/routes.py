@@ -7,7 +7,7 @@ Created on Donnerstag 13. Dezember 2018
 
 from flask import render_template, url_for, redirect, flash, session, request
 from app import app, db
-from app.forms import ScanForm
+from app.forms import ScanForm, MediaAddForm
 from app.models import Reader, Media
 import hashlib, os
 from app.Bacode128Generator import Barcode128
@@ -36,10 +36,11 @@ def index():
 
 	media_count = Media.query.count()
 	reader_count = Reader.query.count()
-	in_stock_count = 0
-	loaned_count = 0
-	reader_with_loaned = 0
-	reader_without_loaned = 0
+	loaned_count = Media.query.filter(Media.reader_id > 0).count()
+	in_stock_count = media_count - loaned_count
+
+	reader_with_loaned = Reader.query.filter(Reader.media_loaned.any() > 0).count()
+	reader_without_loaned = reader_count - reader_with_loaned
 
 
 	return render_template(
@@ -124,11 +125,22 @@ def media(media_id):
 @app.route('/media_back/<media_id>')
 def media_back(media_id):
 	media = Media.query.filter_by(id=media_id).first()
+	reader_id = media.reader_id
 	media.reader_id = None
 	db.session.commit()
-	return redirect(url_for('media', media_id=media_id))
+	flash(u'Medium: "' + media.title + u'" wurde zurückgegeben.', 'success')
+	return redirect(url_for('reader', reader_id=reader_id))
 
 
-@app.route('/book_add_isbn', methods=['GET', 'POST'])
-def book_add_isbn():
-	return render_template('book_add_isbn.html', title='Buch über ISBN hinzufügen')
+@app.route('/media_add', methods=['GET', 'POST'])
+def media_add():
+	form = MediaAddForm()
+
+	if form.validate_on_submit():
+		media = Media(title=form.title.data, author=form.author.data)
+		db.session.add(media)
+		db.session.commit()
+		flash(u'Medium "' + media.title + '" wurde hinzugefügt.', 'success')
+		return redirect(url_for('index'))
+
+	return render_template('media_add.html', title='Medium hinzufügen', form=form)

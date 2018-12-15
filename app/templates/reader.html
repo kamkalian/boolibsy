@@ -2,7 +2,38 @@
 
 {% block content %}
 
-    <table class="table small">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h2>Ausgeliehene Medien</h2>
+    <table class="table mb-5">
+        <thead>
+            <tr>
+                <th>Titel</th>
+                <th>Autor</th>
+                <th>Ausgeliehen am</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for media in reader.media_loaned %}
+            <tr><td>{{ media.title }}</td><td>{{ media.author }}</td><td></td></tr>
+            {% endfor %}
+            {% if reader.media_loaned|length == 0 %}
+                <tr><td colspan="3">Keine Medien ausgeliehen.</td></tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+    <table class="table">
         <tr>
             <td>ID</td>
             <td>{{ reader.id }} / {{ hex_id }}</td>
@@ -10,7 +41,8 @@
         </tr>
     </table>
 
-    <h2>Ausgeliehene Medien</h2>
+
+
 
 
 {% endblock %}

@@ -11,5 +11,9 @@ from wtforms.validators import DataRequired
 
 
 class ScanForm(FlaskForm):
-
 	barcode = StringField('Barcode', validators=[DataRequired()])
+
+
+class MediaAddForm(FlaskForm):
+	title = StringField('Title', validators=[DataRequired()])
+	author = StringField('Autor', validators=[DataRequired()])

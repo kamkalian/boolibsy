@@ -13,7 +13,7 @@ class Reader(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     last_name = db.Column(db.String(64), index=True)
     first_name = db.Column(db.String(64), index=True)
-    meadia_laoned = db.relationship('Media', backref='reader')
+    media_loaned = db.relationship('Media', backref='reader')
 
 class Media(db.Model):
     __tablename__ = 'media'
