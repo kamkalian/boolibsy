@@ -24,24 +24,24 @@
 		  </button>
 		
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		    <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		          Analysis
-		        </a>
-		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-		        </div>
-		      </li>
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Bücher
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{{ url_for('book_add_isbn') }}">Buch über ISBN hinzufügen</a>
+                      </div>
+                  </li>
 		      <li class="nav-item dropdown">
 		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		          Data Manager
+		          Leser
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
 		        </div>
 		      </li>
-		    </ul>
+              </ul>
 		  </div>
 		</nav>
         

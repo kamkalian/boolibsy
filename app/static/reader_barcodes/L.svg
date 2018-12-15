@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN'
+'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg height="25mm" version="1.1" width="60mm" xmlns="http://www.w3.org/2000/svg">
+<g id="barcode_group">
+<rect height="100%" style="fill:white" width="100%"/>
+<text style="fill:black;font-size:10pt;text-anchor:left;" x="1.000mm" y="5.000mm">Andreas, Kurm</text>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="1.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="2.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="2.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="3.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="3.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="4.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="4.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="5.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="5.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="6.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="6.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="7.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="7.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="8.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="8.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="9.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="9.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="10.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="10.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="11.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="11.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="12.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="12.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="13.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="13.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="14.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="14.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="15.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="15.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="16.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="16.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="17.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="17.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="18.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="18.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="19.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="19.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="20.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="20.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="21.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="21.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="22.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="22.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:white;" width="0.5mm" x="23.0mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="23.5mm" y="8.333333333333334mm"/>
+<rect height="8.333333333333334mm" style="fill:black;" width="0.5mm" x="24.0mm" y="8.333333333333334mm"/>
+<text style="fill:black;font-size:10pt;text-anchor:middle;" x="30.0mm" y="20mm">L</text>
+</g></svg>

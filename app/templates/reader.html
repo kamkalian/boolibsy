@@ -2,7 +2,15 @@
 
 {% block content %}
 
-    {{ reader.first_name }}<br>
-     {{ reader.last_name }}
+    <table class="table small">
+        <tr>
+            <td>ID</td>
+            <td>{{ reader.id }} / {{ hex_id }}</td>
+            <td class="text-right"><img src="/static/reader_barcodes/{{ hex_id }}.svg"></td>
+        </tr>
+    </table>
+
+    <h2>Ausgeliehene Medien</h2>
+
 
 {% endblock %}
