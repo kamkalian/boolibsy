@@ -2,3 +2,5 @@ venv/
 .idea/
 __pycache__/
 app/boolibsy.db
+app/static/reader_barcodes/
+app/static/media_barcodes/

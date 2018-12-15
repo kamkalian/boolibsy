@@ -13,9 +13,12 @@ class Reader(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     last_name = db.Column(db.String(64), index=True)
     first_name = db.Column(db.String(64), index=True)
+    meadia_laoned = db.relationship('Media', backref='reader')
 
-class Book(db.Model):
-    __tablename__ = 'book'
+class Media(db.Model):
+    __tablename__ = 'media'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(64), index=True)
+    subtitle = db.Column(db.String(64), index=True)
     author = db.Column(db.String(64), index=True)
+    reader_id = db.Column(db.Integer, db.ForeignKey('reader.id'))
