@@ -2,13 +2,26 @@
 
 {% block content %}
 
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     {% if media.reader_id == None %}
     <div class="alert alert-info d-flex justify-content-between">
         <div class="d-inline">Medium kann ausgeliehen werden.</div>
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ausleihenModal"
+                id="borrowButton">
             Jetzt ausleihen...
         </button>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="ausleihenModal" tabindex="-1" role="dialog" aria-labelledby="ausleihenModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -19,7 +32,25 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <form action="" method="post" class="mb-md-4" novalidate>
+                            {{ form.csrf_token }}
+                            <div class="form-group">
+                                <div class="">
+                                    <h3 class="mb-md-4">Scanne den Barcode einer Leserin oder eines Lesers:</h3>
+                                    {{ form.barcode(size=40, class_="form-control p-md-5") }}
+                                </div>
+                            </div>
+                        </form>
+
+                        <script>
+                            $( "#borrowButton" ).on("click", function () {
+                                setTimeout(function () {
+                                    $( "#barcode" ).focus();
+                                }, 1000);
+
+                            });
+
+                        </script>
                     </div>
                 </div>
             </div>

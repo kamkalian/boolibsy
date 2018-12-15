@@ -31,7 +31,7 @@ def index():
 			media_id = int(hex_id, 16)
 			return redirect(url_for('media', media_id=media_id))
 
-		flash(u'Barcode wurde nicht erkannt,', 'danger')
+		flash(u'Barcode wurde nicht erkannt.', 'danger')
 		return redirect(url_for('index'))
 
 	media_count = Media.query.count()
@@ -80,7 +80,22 @@ def reader(reader_id):
 
 @app.route('/media/<media_id>', methods=['GET', 'POST'])
 def media(media_id):
+	form = ScanForm()
+
 	media = Media.query.filter_by(id=media_id).first()
+
+	# wurde ein reader zum ausleihen gescannt?
+	if form.validate_on_submit():
+		barcode = form.barcode.data
+		hex_id = barcode[1:]
+		if barcode[:1] == "L":
+			reader_id = int(hex_id, 16)
+			media.reader_id = reader_id
+			db.session.commit()
+			return redirect(url_for('media', media_id=media_id))
+		else:
+			flash('Die ist kein gültiger Barcode einer Leserin oder eines Lesers.', 'danger')
+			return redirect(url_for('media', media_id=media_id))
 
 	if not media is None:
 
@@ -92,10 +107,14 @@ def media(media_id):
 		barcode = Barcode128(hex_id, 'Schulbücherei Asselbachschule')
 		barcode.save(basedir + "/static/media_barcodes/" + hex_id)
 
+
+
+
 		return render_template(
 			'media.html',
 			title=media.title,
-			media=media, hex_id=hex_id
+			media=media, hex_id=hex_id,
+			form=form
 		)
 	else:
 		flash(u'Medium wurde nicht in der Datenbank gefunden.', 'danger')
@@ -108,6 +127,7 @@ def media_back(media_id):
 	media.reader_id = None
 	db.session.commit()
 	return redirect(url_for('media', media_id=media_id))
+
 
 @app.route('/book_add_isbn', methods=['GET', 'POST'])
 def book_add_isbn():
