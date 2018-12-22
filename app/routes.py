@@ -104,12 +104,7 @@ def media(media_id):
 		hex_id = 'M' + hex(media.id)
 
 		# barcode generieren
-		basedir = os.path.abspath(os.path.dirname(__file__))
-		barcode = Barcode128(hex_id, 'Schulbücherei Asselbachschule')
-		barcode.save(basedir + "/static/media_barcodes/" + hex_id)
-
-
-
+		generate_barcode('GGS - Asselbachschule', hex_id)
 
 		return render_template(
 			'media.html',
@@ -144,3 +139,36 @@ def media_add():
 		return redirect(url_for('index'))
 
 	return render_template('media_add.html', title='Medium hinzufügen', form=form)
+
+@app.route('/media_generate/<count>')
+def media_generate(count):
+	for i in range(int(count)):
+		media = Media()
+
+		db.session.add(media)
+		db.session.commit()
+
+		# hex wert bestimmen
+		hex_id = 'M' + hex(media.id)
+
+		# barcode generieren
+		generate_barcode(hex_id)
+
+	return """Medien wurden angelegt."""
+
+
+@app.route('/media_show_barcodes')
+def media_show_barcodes():
+	medias = Media.query.all()
+	ids = []
+	for media in medias:
+		ids.append('M' + hex(media.id))
+	return render_template('media_show_barcodes.html', ids=ids)
+
+
+
+def generate_barcode(caption, hex_id):
+	# barcode generieren
+	basedir = os.path.abspath(os.path.dirname(__file__))
+	barcode = Barcode128(hex_id, caption)
+	barcode.save(basedir + "/static/media_barcodes/" + hex_id)

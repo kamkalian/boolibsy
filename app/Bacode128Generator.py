@@ -90,7 +90,7 @@ class Barcode128:
         105: '11010011100', 106: '11000111010'
         }
 
-    def __init__(self, hash_id, caption, width=60, height=25):
+    def __init__(self, hash_id, caption, width=60, height=20):
         self.hash_id = hash_id
         self.caption = caption
         self.width = width
@@ -193,7 +193,7 @@ class Barcode128:
         fp.write("<rect height=\"100%\" style=\"fill:white\" width=\"100%\"/>\n")
         fp.write(
             "<text style=\"fill:black;font-size:10pt;text-anchor:left;\" "
-            "x=\"2.000mm\" y=\"5.000mm\">" + self.caption + "</text>\n")
+            "x=\"2.000mm\" y=\"" + str(self.height/4) + "mm\">" + self.caption + "</text>\n")
 
         # linien des Barcodes zeichnen
         i = 0
@@ -202,8 +202,8 @@ class Barcode128:
             i += 1
             if bar == "1":
                 fp.write(
-                    "<rect height=\"" + str(self.height/4) + "mm\" style=\"fill:black;\" width=\"" + str(bar_width) + "mm\""
-                    " x=\"" + str(1+(i*bar_width)) + "mm\" y=\"" + str(self.height/3) + "mm\"/>\n"
+                    "<rect height=\"" + str(2*(self.height/4)-2) + "mm\" style=\"fill:black;\" width=\"" + str(bar_width) + "mm\""
+                    " x=\"" + str(1+(i*bar_width)) + "mm\" y=\"" + str((self.height/4)+1) + "mm\"/>\n"
                 )
             else:
                 fp.write(
@@ -215,7 +215,7 @@ class Barcode128:
         # hash_id als Text unter dem Barcode schreiben
         fp.write(
             "<text style=\"fill:black;font-size:10pt;text-anchor:left;\" "
-            "x=\"2mm\" y=\"" + str(self.height-5) + "mm\">" + self.hash_id + "</text>\n")
+            "x=\"2mm\" y=\"" + str(self.height-2) + "mm\">" + self.hash_id + "</text>\n")
         fp.write("</g></svg>")
 
         # datei schließen
